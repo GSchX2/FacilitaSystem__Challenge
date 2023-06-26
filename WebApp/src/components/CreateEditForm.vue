@@ -5,7 +5,7 @@
             <label for="title" >Tarefa</label>
             <input v-model='title' id='title' type="text" maxlength="255" placeholder="digite aqui">
             <label for="description">Descrição</label>
-            <textarea v-model='description' id='description' type="text" maxlength="255" placeholder="descreva a tarefa..."></textarea>
+            <textarea v-model='description' id='description' type="text" placeholder="descreva a tarefa..."></textarea>
             <label for="done"><input  v-model="done" id='done' type="checkbox"> Finalizada</label> 
             <label for="due_date">Data para o término</label>
             <input v-model="due_date" id='due_date' type="text" placeholder="dd-mm-aaaa">
@@ -115,7 +115,7 @@
 
 <style scoped>
     .formulario {
-        color: whitesmoke;
+        color: var(--color-quaternary);
         font-size: 1.6rem;
         line-height: 2;
         padding-inline: 2rem;
@@ -158,13 +158,19 @@
     }
 
     button {
-        background-color: #111;
+        background-color: var(--color-secondary);
         border-radius: 5px;
-        color: white;
+        color: var(--color-tertiary);
         cursor: pointer;
         margin-top: 2rem;
         height: 5rem;
         font-size: 1.8rem;
         font-weight: 700;
+    }
+
+    @media screen and (min-width: 660px) and (max-width: 1400px) {
+        .formulario {
+            padding-inline: 20%; 
+        }
     }
 </style>
