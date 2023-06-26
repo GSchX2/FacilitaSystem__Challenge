@@ -19,49 +19,47 @@
                 v-bind:key="todo.id"
                 class="tarefa__card"
             >
-           
-                    <div class="tarefa__card-conteudo">
-                        <div class="tarefa__card-conteudo-texto">
-                            <h3 class="tarefa__card-titulo">{{ todo.title }}</h3>
-                            <p class="tarefa__card-descricao">{{ todo.description }}</p>
-                        </div>
-                        <div>
-                            <a
-                                href="javascript:void(0)"
-                                @click.stop.prevent="toogleStatus(todo)"
-                                class="tarefa__card-conteudo-toogle"
-                            >
-                                <p
-                                v-if="todo.done"
-                                class="tarefa__card-conteudo-toogle--done"
-                                >Finalizada
-                                </p>
-                                <p
-                                v-else
-                                class="tarefa__card-conteudo-toogle--not-done"
-                                >Em&nbsp;progresso
-                                </p>
-                            </a>
-                        </div>
+                <div class="tarefa__card-conteudo">
+                    <div>
+                        <h3 class="tarefa__card-titulo">{{ todo.title }}</h3>
+                        <p class="tarefa__card-descricao">{{ todo.description }}</p>
                     </div>
-                    <div class="tarefa__card-base">
-                        <p class="tarefa_card-base-data">Prazo: {{ todo.due_date }}</p>
-                        <div class="tarefa_card-conteudo-acoes">
-                            <a class="tarefa__card-acao tarefa__card-acao--deleta"
-                                href="javascript:void(0)"
-                                @click="deleteTodo(todo.id)"
-                            >
-                                Deletar
-                            </a>
-                            <a class="tarefa__card-acao tarefa__card-acao--update"
-                                href="javascript:void(0)"
-                                @click.stop.prevent="toBeUpdated = todo"
-                            >
-                                Update
-                            </a>
-                        </div>
+                    <div>
+                        <a
+                            href="javascript:void(0)"
+                            @click.stop.prevent="toogleStatus(todo)"
+                            class="tarefa__card-conteudo-toogle"
+                        >
+                            <p
+                            v-if="todo.done"
+                            class="tarefa__card-conteudo-toogle--done"
+                            >Finalizada
+                            </p>
+                            <p
+                            v-else
+                            class="tarefa__card-conteudo-toogle--not-done"
+                            >Em&nbsp;progresso
+                            </p>
+                        </a>
                     </div>
-               
+                </div>
+                <div class="tarefa__card-base">
+                    <p class="tarefa_card-base-data">Prazo: {{ todo.due_date }}</p>
+                    <div class="tarefa_card-conteudo-acoes">
+                        <a class="tarefa__card-acao tarefa__card-acao--deleta"
+                            href="javascript:void(0)"
+                            @click="deleteTodo(todo.id)"
+                        >
+                            Deletar
+                        </a>
+                        <a class="tarefa__card-acao tarefa__card-acao--update"
+                            href="javascript:void(0)"
+                            @click.stop.prevent="toBeUpdated = todo"
+                        >
+                            Update
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
@@ -142,20 +140,13 @@ export default {
 </script>
 
 <style scoped>
-    /* .tarefa__card-conteudo-texto {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        overflow: hidden;
-        justify-content: space-between;
-    } */
     .navbar {
         background-color: var(--color-primary);
         text-align: center;
         position: relative;
     }
     .navbar__titulo {
-        color: var(--color-quaternary);
+        color: var(--font-color-lighter);
         font-size: 5rem;
     }
     .sidebar {
@@ -170,10 +161,10 @@ export default {
         transition: .3s ease-in-out;
     }
     .sidebar__titulo {
-        color: var(--color-quaternary);
-        text-align: center;
+        color: var(--font-color-lighter);
         font-size: 5rem;
         padding: 2rem 0;
+        text-align: center;
     }
     .openSideBar {
         border: none;
@@ -210,13 +201,13 @@ export default {
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        margin-top: 2rem;
+        margin-block: 3rem;
         row-gap: 2rem;
     }
    
     .tarefa__card {
         background-color: var(--color-quaternary);
-        border: 1px solid grey;
+        border: 1px solid  var(--color-tertiary);
         border-left: 6px solid var(--color-primary);
         border-radius: 5px;
         width: min(100%, 45rem);
@@ -228,6 +219,12 @@ export default {
         flex-direction: column;
         justify-content: space-between;
         overflow: hidden;
+        transition: all 0.8s ease-in-out;
+    }
+    .tarefa__card:hover {
+        background-color: white;
+        border-color: var(--color-quaternary);
+        border-left-color: var(--color-secondary);
     }
     .tarefa__card-conteudo {
         display: flex;
@@ -235,24 +232,31 @@ export default {
         margin-bottom: 1rem;
     }
     .tarefa__card-conteudo-toogle {
-        color: black;
+        color: var(--font-color-light);
         text-decoration: none;
+    }
+    .tarefa__card-conteudo-toogle:hover {
+        color: var(--font-color-dark);
     }
     .tarefa__card-conteudo-toogle--done {
         border-bottom: 5px solid var(--color-primary);
+        font-family: var(--font-family-primary);
         padding-bottom: 0.2rem;
-        transition: all 0.5s ease-in-out;
     }
     .tarefa__card-conteudo-toogle--not-done {
         border-bottom: 5px solid var(--color-delete-done);
+        font-family: var(--font-family-primary);
         padding-bottom: 0.2rem;
-        transition: all 0.5s ease-in-out;
     }
     .tarefa__card-titulo {
+        color: var(--font-color-mid);
+        font-size: 2rem;
+        font-family: var(--font-family-primary);
         margin-top: 3rem;
         margin-bottom: 1.5rem;
     }
     .tarefa__card-descricao {
+        color: var(--font-color-dark);
         line-height: 1.4;
         margin-bottom: 1rem;
     }
@@ -264,19 +268,23 @@ export default {
         padding-top: 2rem;
     }
     .tarefa_card-base-data {
-        color: grey;
-        font-size: 1.4rem;
+        color: var(--font-color-light);
+        font-size: 1.5rem;
+        font-weight: 700;
     }
     .tarefa__card-acao {
-        color: black;
-        padding: 0.2rem;
+        color: var(--font-color-light);
+        font-family: var(--font-family-primary);
+        padding: 0.5rem;
         text-decoration: none;
         transition: border 0.2s linear;
     }
     .tarefa__card-acao--deleta:hover {
+        color: var(--font-color-mid);
         border-bottom: 5px solid var(--color-delete-done);
     }
     .tarefa__card-acao--update:hover {
+        color: var(--font-color-mid);
         border-bottom: 5px solid var(--color-primary);
     }
 
@@ -294,7 +302,7 @@ export default {
             padding-inline: 0;
             width: calc(100% - 50rem);
             margin-left: 50rem;
-            padding: 4%;
+            padding-inline: 4%;
         }
         .tarefas {
             justify-content: flex-start;
