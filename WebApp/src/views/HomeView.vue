@@ -1,7 +1,7 @@
 <template>
     <main>
         <nav class="navbar">
-            <button class="openSideBar" @click="toogleSideBar()">&#9776;</button>
+            <button class="openSideBar" @click="toogleSideBar()"><img class="plus-botao" src="../assets/circle-plus-solid.svg"></button>
             <h1 class="navbar__titulo">task <span class="plus">+</span></h1>
         </nav>
         <div v-bind:class="['sidebar', { 'collapsed': isCollapsed }]">
@@ -173,10 +173,15 @@ export default {
         color: var(--color-quaternary);
         font-size: 3rem;
         margin-left: 1.5rem;
+        height: 5rem;
+        width: 5rem;
         top: 50%;
         transform: translateY(-50%);
         left: 0;
         position: absolute;
+    }
+    .plus-botao {
+        filter: invert(1);
     }
     .closeSideBar {
         color: var(--color-quaternary);
