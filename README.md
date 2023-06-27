@@ -1,26 +1,26 @@
-#Challenge - Gerenciador de tarefas
+# Challenge - Gerenciador de tarefas
 
-##Informações sobre o projeto:
-	- O challenge se trata da criação de um WebApp de gerenciamento de tarefas
-		- O projeto deve consumir uma REST_API para o armazenamento das tarefas no banco de dados
-			- Utilização do CRUD
-		- Criar uma interface de usuário agradável e intuitiva
+## Informações sobre o projeto:
+	O challenge se trata da criação de um WebApp de gerenciamento de tarefas
+	O projeto deve consumir uma REST_API para o armazenamento das tarefas no banco de dados
+		- Utilização do CRUD
+	Ter uma interface de usuário agradável, intuitiva e interagir com a REST_API
 
-##Linguages utilizadas:
-	####Laravel
-		- Criação da REST_API
-	
-	####Vue
-		- Criação do WebApp e consumo da REST_API
-	
-	####HMTL e CSS
-		- Criação e estilização
+## Linguages utilizadas
+#### Laravel
+	Criação da REST_API
 
-####Informações adicionais:
-	- Existe um banco de dados construido para ajudar nos testes
-		- Ele se encontra dento da pasta rest_api_crud/DATABASE_MYSQL
+#### Vue
+	Criação do WebApp e consumo da REST_API
 
-####Dependências:
+#### HMTL e CSS
+	Criação e estilização
+
+#### Informações adicionais:
+	Existe um banco de dados construido para ajudar nos testes
+	Ele se encontra dento da pasta rest_api_crud/DATABASE_MYSQL
+
+#### Dependências:
 	Node v18.13
 		https://nodejs.org/en
 	npm 8.19.3
